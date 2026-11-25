@@ -1,0 +1,4 @@
+# Keep line endings identical on every OS so the CSV reproduces byte-for-byte.
+* text=auto eol=lf
+*.csv text eol=lf
+*.png binary

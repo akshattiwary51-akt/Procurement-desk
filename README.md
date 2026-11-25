@@ -260,6 +260,7 @@ git clone <this repository> && cd procurement-desk
 python3 --version                 # Python >= 3.9 (tested on 3.13); no packages to install
 python3 run.py                    # prints 40/40, writes submission/submission_reproduced.csv,
                                   # and checks it is identical to submission/submission.csv
+                                  # (line endings ignored, so a Windows CRLF checkout also passes)
 python3 -m unittest discover -s tests -v    # 20 unit tests
 ```
 

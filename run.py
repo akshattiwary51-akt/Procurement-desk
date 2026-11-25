@@ -5,17 +5,22 @@
     python3 run.py --out my.csv
 
 Also prints accuracy on the 40 worked examples and verifies the result is
-byte-identical to the committed submission/submission.csv.
+identical (ignoring CRLF/LF line endings) to the committed submission/submission.csv.
 """
 import argparse
 import csv
-import filecmp
 import os
 import sys
 
 from procurement_desk import engine
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+
+
+def _norm(path):
+    """File bytes with CRLF folded to LF, so a Windows checkout (autocrlf) still compares equal."""
+    with open(path, 'rb') as fh:
+        return fh.read().replace(b'\r\n', b'\n')
 
 
 def main():
@@ -43,7 +48,7 @@ def main():
 
     final = os.path.join(HERE, 'submission', 'submission.csv')
     if os.path.exists(final) and os.path.abspath(a.out) != final:
-        same = filecmp.cmp(a.out, final, shallow=False)
+        same = _norm(a.out) == _norm(final)
         print('identical to submission/submission.csv:', same)
         sys.exit(0 if same else 1)
 
