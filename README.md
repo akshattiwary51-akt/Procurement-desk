@@ -241,8 +241,12 @@ alerting on `UNPARSED` / `MISSING_INFO` rates to detect new message styles; and 
 ## 10. Original work and disclosures
 
 * The competition data and playbook (`data/`) are provided by the organisers (CC BY-SA 4.0) and are unmodified.
-* The decision engine, runner and tests in this repository were written with **Claude (Anthropic), used as an AI
-  coding assistant** in an interactive session, which also performed the audits described in section 7.
+* **Team Ai_HUNT_10** (Akshat Kumar Tiwary) chose a deterministic, rule-based approach after reading the task and
+  playbook, including its decision procedure, policies, categories, suppliers, amendments and precedents.
+  **Claude (Anthropic)** was used as an AI coding assistant in an interactive session to produce the
+  implementation, tests, original README and architecture diagram, and to perform the audits described in
+  section 7. **GitHub Copilot** assisted with this README disclosure update; no other AI tools were used.
+  No external tutorials or help from others were used.
 * No external code, templates or third-party Python packages are used (standard library only: `csv`, `re`, `math`,
   `fractions`, `decimal`, `os`, `argparse`, `filecmp`, `unittest`).
 * No LLM is called by the program itself.
